@@ -1,21 +1,15 @@
-# Arduino_PWM
-
-## 功能
-通过控制 bpibit 上的PWM ，使之出现呼吸灯的效果
-
-## 代码
-```c++
-
 #include <Arduino.h>
 
-int freq = 2000;  // 频率
-int channel = 0;  // 通道
-int resolution = 8; // 分辨率
+int freq = 2000;
+int channel = 0;
+int resolution = 8;
 
 void setup()
 {
+
+  Serial.begin(115200);
   ledcSetup(channel, freq, resolution);
-  ledcAttachPin(18, channel); // 将通道连接到对应的引脚上
+  ledcAttachPin(18, channel);
 }
 
 void loop()
@@ -32,4 +26,3 @@ void loop()
     delay(20);
   }
 }
-```
